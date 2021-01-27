@@ -2,12 +2,18 @@ package com.shepherd.ui;
 
 import com.shepherd.dao.IAccountDao;
 import com.shepherd.service.IAccountService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 /**
  * 模拟一个表现层，用于调用业务层
  */
+@Slf4j
 public class Client {
 
     /**
@@ -31,8 +37,9 @@ public class Client {
         //1.获取核心容器对象
         ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
 //        ApplicationContext ac = new FileSystemXmlApplicationContext("C:\\Users\\zhy\\Desktop\\bean.xml");
-        //2.根据id获取Bean对象
+//        2.根据id获取Bean对象
         IAccountService as  = (IAccountService)ac.getBean("accountService");
+
         IAccountDao adao = ac.getBean("accountDao",IAccountDao.class);
 
         System.out.println(as);
@@ -44,6 +51,8 @@ public class Client {
 //        Resource resource = new ClassPathResource("bean.xml");
 //        BeanFactory factory = new XmlBeanFactory(resource);
 //        IAccountService as  = (IAccountService)factory.getBean("accountService");
+//        IAccountService as1  = (IAccountService)factory.getBean("accountService");
 //        System.out.println(as);
+
     }
 }

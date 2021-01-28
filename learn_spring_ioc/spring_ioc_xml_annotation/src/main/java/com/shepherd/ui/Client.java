@@ -1,6 +1,5 @@
 package com.shepherd.ui;
 
-import com.shepherd.entity.User;
 import com.shepherd.service.IAccountService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -10,7 +9,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Client {
 
     /**
-     *
      * @param args
      */
     public static void main(String[] args) {
@@ -19,23 +17,12 @@ public class Client {
         ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
         //2.根据id获取Bean对象
         IAccountService as  = (IAccountService)ac.getBean("accountService");
+//        IAccountService as2  = (IAccountService)ac.getBean("accountService");
+//        System.out.println(as);
+//        IAccountDao adao = ac.getBean("accountDao",IAccountDao.class);
+//        System.out.println(adao);
+//        System.out.println(as == as2);
         as.saveAccount();
-
-        //下面测试依赖注入DI
-        //1.构造方法注入
-        User user = (User)ac.getBean("user");
-        System.out.println("user:" + user);
-
-        //2.setter方法注入
-        User user2 = (User)ac.getBean("user2");
-        System.out.println("user2:"+ user2);
-
-        //集合类型注入
-        User user3 = (User)ac.getBean("user3");
-        System.out.println("user3:" + user3);
-
-
-        //手动关闭容器
         ac.close();
     }
 }

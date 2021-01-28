@@ -3,12 +3,8 @@ package com.shepherd.ui;
 import com.shepherd.dao.IAccountDao;
 import com.shepherd.service.IAccountService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 
 /**
  * 模拟一个表现层，用于调用业务层

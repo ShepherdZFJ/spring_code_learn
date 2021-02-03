@@ -3,7 +3,7 @@ package com.shepherd.dao;
 /**
  * 账户的持久层接口
  */
-public interface IAccountDao {
+public interface AccountDao {
 
     /**
      * 模拟保存账户

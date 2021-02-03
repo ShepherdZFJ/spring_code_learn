@@ -1,15 +1,14 @@
 package com.shepherd.ui;
 
-import com.shepherd.dao.IAccountDao;
+import com.shepherd.dao.AccountDao;
 import com.shepherd.service.IAccountService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * 模拟一个表现层，用于调用业务层
  */
-@Slf4j
+
 public class Client {
 
     /**
@@ -36,7 +35,7 @@ public class Client {
 //        2.根据id获取Bean对象
         IAccountService as  = (IAccountService)ac.getBean("accountService");
 
-        IAccountDao adao = ac.getBean("accountDao",IAccountDao.class);
+        AccountDao adao = ac.getBean("accountDao", AccountDao.class);
 
         System.out.println(as);
         System.out.println(adao);

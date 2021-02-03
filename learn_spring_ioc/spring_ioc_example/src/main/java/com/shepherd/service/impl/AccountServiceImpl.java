@@ -1,6 +1,6 @@
 package com.shepherd.service.impl;
 
-import com.shepherd.dao.IAccountDao;
+import com.shepherd.dao.AccountDao;
 import com.shepherd.service.IAccountService;
 
 /**
@@ -8,7 +8,7 @@ import com.shepherd.service.IAccountService;
  */
 public class AccountServiceImpl implements IAccountService {
 
-    private IAccountDao accountDao ;
+    private AccountDao accountDao ;
 
     public AccountServiceImpl(){
         System.out.println("对象创建了");

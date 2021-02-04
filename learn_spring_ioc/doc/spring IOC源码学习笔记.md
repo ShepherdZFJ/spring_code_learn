@@ -1939,6 +1939,12 @@ protected <T> T doGetBean(
    Object bean; 
  
    // 检查下是不是已经创建过了
+   //检查缓存中或者实例工厂中是否有对应的实例
+   //为什么会首先执行下面这段代码呢？
+   //因为在创建单例bean的时候会存在依赖注入的情况，而在创建依赖的时候为了避免循环依赖问题，
+   //Spring创建bean的原则是不等bean创建完成，就会将创建bean的ObjectFactory 提早眼光
+   //也就是将ObjectFactory加入到缓存中， 一旦下一个bean创建需要依赖上一个bean，则直接使用               ObjectFactory
+   //直接尝试从缓存获取或者singletonFactories中的ObjectFactory 中获取
    Object sharedInstance = getSingleton(beanName);
  
    // 这里说下 args 呗，虽然看上去一点不重要。前面我们一路进来的时候都是 getBean(beanName)，
@@ -1959,6 +1965,7 @@ protected <T> T doGetBean(
    }
  
    else {
+       //只有单例情况下才会尝试解决循环依赖，对于原型模式不能解决，直接抛出异常
       if (isPrototypeCurrentlyInCreation(beanName)) {
          // 当前线程已经创建过了此 beanName 的 prototype 类型的 bean，那么抛异常
          throw new BeanCurrentlyInCreationException(beanName);

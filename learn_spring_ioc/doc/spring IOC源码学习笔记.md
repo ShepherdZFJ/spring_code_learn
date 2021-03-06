@@ -372,7 +372,7 @@ Bean 的初始化分为3 步：
 package com.shepherd.service.impl;
 
 import com.shepherd.dao.IAccountDao;
-import com.shepherd.service.IAccountService;
+import com.shepherd.service.AccountService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -389,7 +389,7 @@ import javax.annotation.Resource;
  * 账户的业务层实现类
  *
  * 曾经XML的配置：
- *  <bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl"
+ *  <bean id="accountService" class="com.shepherd.service.impl.AccountServiceImpl"
  *        scope=""  init-method="" destroy-method="">
  *      <property name=""  value="" | ref=""></property>
  *  </bean>
@@ -484,7 +484,7 @@ public class AccountServiceImpl implements IAccountService {
 - **@ComponentScan**
 
   ```properties
-  作用： 用于指定spring在初始化容器时要扫描的包。作用和在spring的xml配置文件中的： <context:component-scan base-package="com.itheima"/>是一样的。 
+  作用： 用于指定spring在初始化容器时要扫描的包。作用和在spring的xml配置文件中的： <context:component-scan base-package="com.shepherd"/>是一样的。 
   属性： basePackages：用于指定要扫描的包。和该注解中的value属性作用一样。
   ```
 
@@ -604,7 +604,7 @@ import org.springframework.context.annotation.PropertySource;
  *      属性：
  *          value：它和basePackages的作用是一样的，都是用于指定创建容器时要扫描的包。
  *                 我们使用此注解就等同于在xml中配置了:
- *                      <context:component-scan base-package="com.itheima"></context:component-scan>
+ *                      <context:component-scan base-package="com.shepherd"></context:component-scan>
  *  Bean
  *      作用：用于把当前方法的返回值作为bean对象存入spring的ioc容器中
  *      属性:

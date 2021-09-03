@@ -1,6 +1,8 @@
 package com.shepherd.reflect;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.IOException;
 import java.math.BigDecimal;

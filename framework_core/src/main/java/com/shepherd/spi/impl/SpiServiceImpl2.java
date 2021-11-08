@@ -10,6 +10,6 @@ import com.shepherd.spi.SpiService;
 public class SpiServiceImpl2 implements SpiService {
     @Override
     public void execute() {
-        System.out.println("piServiceImpl2 execute finish.....");
+        System.out.println("SpiServiceImpl2 execute finish.....");
     }
 }

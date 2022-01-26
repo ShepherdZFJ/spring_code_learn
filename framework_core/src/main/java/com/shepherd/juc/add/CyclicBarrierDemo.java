@@ -1,4 +1,4 @@
-package com.shepherd.add;
+package com.shepherd.juc.add;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;

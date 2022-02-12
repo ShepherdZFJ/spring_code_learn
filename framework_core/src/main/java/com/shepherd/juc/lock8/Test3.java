@@ -1,25 +1,26 @@
-package com.shepherd.lock8;
+package com.shepherd.juc.lock8;
 
 /**
  * @author fjzheng
  * @version 1.0
- * @date 2022/1/17 15:25
+ * @date 2022/1/17 15:38
  */
 
 import java.util.concurrent.TimeUnit;
 
 /**
- * 8锁，就是关于锁的8个问题
- * 1、标准情况下，两个线程先打印 发短信还是 打电话？ 1/发短信  2/打电话
- * 1、sendSms延迟4秒，两个线程先打印 发短信还是 打电话？ 1/发短信  2/打电话
+ * 5、增加两个静态的同步方法，只有一个对象，先打印 发短信？打电话？
+ * 6、两个对象！增加两个静态的同步方法， 先打印 发短信？打电话？
  */
-public class Test1 {
+public class Test3  {
     public static void main(String[] args) {
-        Phone phone = new Phone();
+        // 两个对象的Class类模板只有一个，static，锁的是Class
+        Phone3 phone1 = new Phone3();
+        Phone3 phone2 = new Phone3();
 
         //锁的存在
         new Thread(()->{
-            phone.sendSms();
+            phone1.sendSms();
         },"A").start();
 
         // 捕获
@@ -30,16 +31,18 @@ public class Test1 {
         }
 
         new Thread(()->{
-            phone.call();
+            phone2.call();
         },"B").start();
     }
 }
 
-class Phone{
+// Phone3唯一的一个 Class 对象
+class Phone3{
 
     // synchronized 锁的对象是方法的调用者！
-    // 两个方法用的是同一个锁，谁先拿到谁执行！
-    public synchronized void sendSms(){
+    // static 静态方法
+    // 类一加载就有了！锁的是Class
+    public static synchronized void sendSms(){
         try {
             TimeUnit.SECONDS.sleep(4);
         } catch (InterruptedException e) {
@@ -48,8 +51,9 @@ class Phone{
         System.out.println("发短信");
     }
 
-    public synchronized void call(){
+    public static synchronized void call(){
         System.out.println("打电话");
     }
+
 
 }

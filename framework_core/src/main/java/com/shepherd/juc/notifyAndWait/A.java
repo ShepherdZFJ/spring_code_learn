@@ -1,4 +1,4 @@
-package com.shepherd.juc.pc;
+package com.shepherd.juc.notifyAndWait;
 
 /**
  * @author fjzheng

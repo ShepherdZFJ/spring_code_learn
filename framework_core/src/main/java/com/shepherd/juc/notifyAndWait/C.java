@@ -1,4 +1,4 @@
-package com.shepherd.juc.pc;
+package com.shepherd.juc.notifyAndWait;
 
 /**
  * @author fjzheng
@@ -39,6 +39,13 @@ public class C {
     }
 
 }
+
+/**
+ * 管程即monitor监视器
+ * Lock 和 Condition 实现的管程，线程等待和通知需要调用 await()、signal()、signalAll()，它们的语义和 wait()、notify()、notifyAll() 是相同的。
+ * 但是不一样的是，Lock&Condition 实现的管程里只能使用前面的 await()、signal()、signalAll()，而后面的 wait()、notify()、notifyAll()
+ * 只有在 synchronized 实现的管程里才能使用。如果一不小心在 Lock&Condition 实现的管程里调用了 wait()、notify()、notifyAll()，那程序可就彻底玩儿完了
+ */
 
 class Data3{ // 资源类 Lock
 

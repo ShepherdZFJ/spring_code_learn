@@ -1,4 +1,4 @@
-package com.shepherd.rw;
+package com.shepherd.juc.rw;
 
 /**
  * @author fjzheng

@@ -4,6 +4,7 @@ import com.shepherd.reflect.User;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -34,9 +35,13 @@ public class AllTest {
 //        Map<String, String> map = new ConcurrentHashMap<>(16);
 //        map.put("hello", null);
 //        System.out.println(map);
-        User user = new User();
-        user.setAge(null);
-        System.out.println(user.getAge() == 200);
+//        User user = new User();
+//        user.setAge(null);
+//        System.out.println(user.getAge() == 200);
+
+        Map<String, String> map = new HashMap<>();
+        map.put("hello ", "world");
+        System.out.println(map.get("hello"));
 
 
 
